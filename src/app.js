@@ -7,7 +7,9 @@ app.use(express.static(path.join(__dirname, "../public"))); // Servir archivos e
 
 // Usuarios simulados
 const users = [
-  { username: "user", password: "password" },
+  { username: "user", password: "pass" },
+  { username: "user1", password: "pass1" },
+  { username: "user2", password: "pass2" },
 ];
 
 
@@ -26,7 +28,7 @@ app.post("/login", (req, res) => {
 });
 
 // Ruta para servir el HTML estático
-app.get("/", (req, res) => {
+app.get("/auth/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public", "index.html"));
 });
 
