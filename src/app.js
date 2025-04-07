@@ -28,7 +28,7 @@ app.post("/login", (req, res) => {
 });
 
 // Ruta para servir el HTML estático
-app.get("/auth/", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public", "index.html"));
 });
 
