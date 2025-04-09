@@ -14,9 +14,9 @@ const login = async (req, response = express.response) => {
     (u) => u.username === username && u.password === password
   );
   if (user) {
-    res.status(200).send({ message: "Login exitoso" });
+    response.status(200).send({ message: "Login exitoso" });
   } else {
-    res.status(401).send({ message: "Credenciales incorrectas" });
+    response.status(401).send({ message: "Credenciales incorrectas" });
   }
 };
 

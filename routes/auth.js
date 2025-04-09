@@ -22,13 +22,14 @@ const {
   });
 
   router.post(
-  "/",
-  [ //middlewares
-    check("username","El usuario es obligatorio").isEmpty(),
-    check("password","El password es obligatorio que cuenta con 3 cracteres").isLength({min:3}),
-    validarCampos 
-  ] ,
-   login);
+    "/login",
+    [
+      check("username", "El usuario es obligatorio").notEmpty(), 
+      check("password", "El password debe tener al menos 3 caracteres").isLength({ min: 3 }),
+      validarCampos,
+    ],
+    login
+  );
 
 
    module.exports = router;

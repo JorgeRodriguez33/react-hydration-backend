@@ -3,7 +3,7 @@ const path = require("path");
 
 const app = express();
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../public"))); // Servir archivos estáticos
+app.use(express.static(path.join(__dirname, "public"))); // Servir archivos estáticos
 
 
 const initialPlaces = [
@@ -12,11 +12,12 @@ const initialPlaces = [
   { label: "Mercado del Puerto", coordinates: [-34.9076, -56.2118] },
 ];
 
+app.use("/api/auth",require("./routes/auth"));
 
 
 // Ruta para manejar login
 /* app.post("/login", (req, res) => {
-  const { username, password } = req.body;
+  const { username, password } = req.body;S
   const user = users.find(
     (u) => u.username === username && u.password === password
   );
@@ -29,7 +30,7 @@ const initialPlaces = [
 
 // Ruta para servir el HTML estático
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.get("/getMarkers", (req, res) => {
@@ -38,7 +39,6 @@ app.get("/getMarkers", (req, res) => {
 
 
 
-app.use("/api/auth",require("./routes/auth"));
 
 /* app.use("/api/events",require("./routes/events")); */
 
